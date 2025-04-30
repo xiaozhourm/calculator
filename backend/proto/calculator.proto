@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package = "calculator-project/backend/gen/calculator";  // 添加这一行
+
+service CalculatorService {
+  rpc Calculate(CalculationRequest) returns (CalculationResponse) {}
+}
+
+message CalculationRequest {
+  double num1 = 1;
+  double num2 = 2;
+  string operation = 3; // "+", "-", "*", "/"
+}
+
+message CalculationResponse {
+  double result = 1;
+}
